@@ -1,0 +1,118 @@
+@use './colors' as colors;
+@use './typography' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: colors.$cream;
+	font-family: $primary-font;
+	font-size: 14px;
+	color: colors.$dark-grayish-blue;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 16px;
+	width: 345px;
+	background-color: colors.$white;
+	border-radius: 10px;
+	overflow: hidden;
+
+	&__image {
+		height: 240px;
+		background-image: url('../images/image-product-mobile.jpg');
+		background-size: cover;
+	}
+
+	&__content {
+		padding: 20px 24px;
+	}
+	&__product {
+		text-transform: uppercase;
+		letter-spacing: 4px;
+	}
+	&__title {
+		margin: 16px 0;
+		font-family: $secondary-font;
+		color: colors.$dark-blue;
+		font-size: 32px;
+		line-height: 32px;
+	}
+	&__price-box {
+		margin: 20px 0;
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+	&__price {
+		font-family: $secondary-font;
+		color: colors.$dark-cyan;
+		font-size: 32px;
+	}
+	&__btn {
+		width: 100%;
+		padding: 12px 0;
+		border: none;
+		background-color: colors.$dark-cyan;
+		color: colors.$white;
+		font-size: 15px;
+		font-weight: 700;
+		letter-spacing: 0.3px;
+		border-radius: 10px;
+		cursor: pointer;
+		transition: background-color 0.3s;
+
+		img {
+			position: relative;
+			top: 2px;
+			margin-right: 8px;
+			width: 16px;
+		}
+		&:hover {
+			background-color: hsl(158, 36%, 27%);
+		}
+	}
+}
+
+.attribution {
+	font-size: 11px;
+	text-align: center;
+
+	a {
+		color: hsl(228, 45%, 44%);
+	}
+}
+
+@media (min-width: 1440px) {
+	.card {
+		width: 600px;
+		flex-direction: row;
+
+		&__image {
+			width: 50%;
+			height: 100%;
+			background-image: url('../images/image-product-desktop.jpg');
+		}
+
+		&__content {
+			max-width: 300px;
+			padding: 32px;
+		}
+
+		&__title {
+			margin: 24px 0;
+		}
+	}
+}
